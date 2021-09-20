@@ -8,7 +8,7 @@ import subprocess
 say("Say something sir....")
 
 text = recog()
-print(text)
+print("USER: "+text)
 
 try:
     if ("youtube" in text.lower()):
@@ -25,9 +25,9 @@ try:
 
     elif ("search" in text.lower()):
         word = text.split()[text.split().index("search")+1].lower()
-        res = os.popen("which {}".format(word)).read()
-        if (word.lower() in res.split("/")):
-            print(word)
+        res = subprocess.check_output("which {}".format(word), shell=True)
+        print(res)
+        if (res != None):
             say("{} is found sir".format(word))
 
     else:
