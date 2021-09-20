@@ -13,4 +13,4 @@ def recog():
             print("Recognising.....")
             return r.recognize_google(audio_text)
         except:
-            print("Sorry, I did not get that")
+            pass

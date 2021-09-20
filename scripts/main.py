@@ -1,16 +1,18 @@
 from recog import recog
 from say import say
+from search_package import searchpac
 import os
 import wikipedia
 import webbrowser as wb
 import subprocess
 
-say("Say something sir....")
-
-text = recog()
-print("USER: "+text)
+say("How can i help you sir....")
 
 try:
+    
+    text = recog()
+    print("USER: "+text)
+
     if ("youtube" in text.lower()):
         say("Opening youtube")
         wb.open("youtube.com")
@@ -25,10 +27,7 @@ try:
 
     elif ("search" in text.lower()):
         word = text.split()[text.split().index("search")+1].lower()
-        res = subprocess.check_output("which {}".format(word), shell=True)
-        print(res)
-        if (res != None):
-            say("{} is found sir".format(word))
+        say("{} is installed in your pc sir".format(word)) if(searchpac(word)) else say("can't find {} in your pc sir".format(word))
 
     else:
         result = wikipedia.summary(text, sentences = 2)
