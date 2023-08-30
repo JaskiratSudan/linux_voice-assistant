@@ -1,10 +1,11 @@
 # linux_voice-assistant
 A voice assistant for linux.
-
+## Installation
 For installation follow the following steps:
+```bash
+sudo ./install.sh
+```
+## Authors
 
-STEP 1: Open Terminal in this directory.
+- [@JaskiratSudan](https://github.com/JaskiratSudan)
 
-STEP 2: Run -->  sudo ./install.sh
-
-Installation is Completed.
